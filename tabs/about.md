@@ -10,6 +10,4 @@ I am Xi (Lucy) Liu, a PhD candidate in Statistics at University of California, S
 
 I am a big LEGO fan. I am wondering if it is possible to create such software/algorithm that when people input several photos of the object, it will output a building instruction. For now, I can not figure out a framework or  workflow for this. This is the first motivation for me to change my research direction because I decided to turn to deep learning for help. Recently, I started to read mathematical graduate textbooks about manifold, topology and optimal transport. 
 
-I do not have any background on differential geometry or deep learning algorithm implementation, plus I am already in my fourth year. However, I would like to give myself an opportunity to prove I am not afraid of starting over.
-
 I am also a marathoner. I finished 2018 Chicago marathon within 4 hours. 
