@@ -6,30 +6,30 @@
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 #--------------------------
 
-title: Chirpy
+title: Lucy's Blog
 
-description: 'A text-based Jekyll theme.'
+description: 'Learning for the sake of Learning'
 
 # Replace with your domain, e.g. "https://username.github.io"
 url: 'https://LucyLiu-UCSB.github.io'
 
-author: your_full_name                  # change to your full name
+author: Lucy Liu                  # change to your full name
 
-avatar: /assets/img/sample/avatar.jpg   # Support network resources.
+avatar: /assets/img/sample/Lucy.png   # Support network resources.
 
 github:
-  username: github_username             # change to your github username
+  username: LucyLiu-UCSB             # change to your github username
 
 twitter:
-  username: twitter_username            # change to your twitter username
+  username: LucyLiu84049511            # change to your twitter username
 
 social:
-  name: your_full_name                  # it will shows as the copyright owner in Footer
-  email: example@doamin.com             # change to your email address
+  name: Lucy Liu                  # it will shows as the copyright owner in Footer
+  email: xiliu@ucsb.edu             # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username      # change to your twitter homepage
-    - https://github.com/username       # change to your github homepage
+    - https://twitter.com/LucyLiu84049511      # change to your twitter homepage
+    - https://github.com/LucyLiu-UCSB       # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
@@ -39,7 +39,7 @@ google_site_verification: google_meta_tag_verification # change to your verifica
 #--------------------------
 
 # Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
-timezone: Asia/Shanghai
+timezone: GMT-8
 
 google_analytics:
   # Change to your Google Analytics ID
@@ -49,7 +49,7 @@ google_analytics:
   pv: false
 
 disqus:
-  shortname: 'disqus'   # Change to your Disqus shortname.
+  shortname: 'disqus_tZRqN9GbJu'   # Change to your Disqus shortname.
   comments: true        # boolean type, the gobal switch of posts' comments.
 
 # The year your website was first run.
