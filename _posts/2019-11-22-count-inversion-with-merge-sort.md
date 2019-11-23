@@ -1,8 +1,10 @@
 ---
-title: "Count inversion with merge sort"
+title: Count inversion with merge sort
 date: 2019-11-22 14:21
 categories: [Computer Science, Algorithm]
 tags: [Recursion, Divide&Conquer]
+seo:
+  date_modified: 2019-11-22 20:25:33 -0800
 ---
 
 ## Question
