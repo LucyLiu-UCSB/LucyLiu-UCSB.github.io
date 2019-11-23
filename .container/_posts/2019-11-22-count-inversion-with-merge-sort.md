@@ -4,7 +4,7 @@ date: 2019-11-22 14:21
 categories: [Computer Science, Algorithm]
 tags: [Recursion, Divide&Conquer]
 seo:
-  date_modified: 2019-11-22 19:39:18 -0800
+  date_modified: 2019-11-22 20:25:33 -0800
 ---
 
 ## Question
@@ -23,17 +23,17 @@ def bruteForceCount(arr):
 ## Divide and Conquer
 Can we do better?
 
-The Merge sort algorithm using the Divide and Conquer technique reduces the running time from \\(O(n^2)\\) to \\(n\log n\\). From my understanding, the magic happens at the cleaning up step. With two length \\(m\\) **sorted** sublists, to form the original list, the running time is \\(O(m)\\) instead of \\(O(m^2)\\). Combined with the recursive tree structure, the depth of the tree is \\(\log_2 n\\) and running time for each level, \\(i = 1, \ldots, \log_2 n\\),   is \\(O(n)\\). Finally, the merge sort algorithm has running time \\(n\log n\\).
+The Merge sort algorithm using the Divide and Conquer technique reduces the running time from \\(O(n^2)\\) to \\(n\log n\\). From my understanding, the magic happens at the cleaning up step. With two length \\(m\\) **sorted** sublists, to form the original list, the running time is \\(O(m)\\) instead of \\(O(m^2)\\). Combined with the recursive tree structure, the depth of the tree is \\(\log_2 n\\) and running time for each level, \\(i = 1, \ldots, \log_2 n\\),   is \\(O(n)\\). Finally, the merge sort algorithm has running time \\(O(n\log n)\\).
 
 To count the inversion, the subquestion is to count the inversions in the left sublist and right sublist. The cleanup work is counting the number of split inversions, i.e, for inversion pair \\((a, b)\\), \\(a \in\\) left sublist and \\(b \in\\) right sublist. With two sorted length \\(m\\) sublists, the running time of the clean up work is \\(O(m)\\). Hence, the counting inversion algorithm has running time \\(O(n\log n)\\).
 
 ## Statistical View
 
-Where can we use this the algorithm? The inversion number can be used as a measurement of dissimilarity. For instance, if two customers give their ranking for 3 fruits, the number of inversions in rank lists measure how their preference is different from each other. 
+Where can we use this the algorithm? The inversion number can be used as a measurement of dissimilarity. For instance, if two customers give their ranking for 3 fruits, the number of inversions in rank lists will measure how their preference is different from each other. 
 
 Suppose that customer I ranks apple = 1, orange = 2, grape = 3. And customer II ranks orange = 1, grape = 2 and apple = 3. Then we count inversion of list [3, 1, 2] as 2. If they give the same rank list, the number of inversions is 0.
 
-A nature question is if let two independent subjects rank \\(n\\) items, what is the average numebr of the inversion. The answer is \\(n(n-1)/4\\). The following proof utilizes indicator function:
+A nature question is if let two independent subjects rank \\(n\\) items, what is the average numebr of inversions. The answer is \\(n(n-1)/4\\). The following proof utilizes indicator function:
     \\[I_{ij} = 1, \text{ if }  i < j \text{ and } X[i] > X[j].\\]
     Then number of inversions in the list \\(\mathbf{X}\\) is \\(\sum_i\sum_j I_{ij}\\).
 \\[ \mathbf{E}\left(\sum_{i=1}^n\sum_{j=1}^n I_{ij}\right) = \sum_{i=1}^n\sum_{j=1}^n \mathbf{E}(I_{ij}) 
