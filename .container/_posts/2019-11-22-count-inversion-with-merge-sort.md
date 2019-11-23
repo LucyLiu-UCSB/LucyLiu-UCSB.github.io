@@ -4,7 +4,7 @@ date: 2019-11-22 14:21
 categories: [Computer Science, Algorithm]
 tags: [Recursion, Divide&Conquer]
 seo:
-  date_modified: 2019-11-22 18:25:06 -0800
+  date_modified: 2019-11-22 19:20:32 -0800
 ---
 
 ## Question
