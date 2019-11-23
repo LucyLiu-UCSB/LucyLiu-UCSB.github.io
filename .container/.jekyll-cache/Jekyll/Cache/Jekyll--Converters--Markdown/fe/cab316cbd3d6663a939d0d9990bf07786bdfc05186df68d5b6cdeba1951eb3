@@ -1,4 +1,4 @@
-I"*
+I"2
 <div class="card categories">
     <!-- top-category -->
     <div class="card-header d-flex justify-content-between hide-border-bottom" id="h_Computer Science">
@@ -22,7 +22,7 @@
       <!-- arrow -->
       <a href="#l_Computer Science" data-toggle="collapse" aria-expanded="true" class="category-trigger hide-border-bottom">
         
-        <i class="fas fa-angle-up"></i>
+        <i class="fas fa-fw fa-angle-down"></i>
         
       </a>
 

@@ -4,12 +4,13 @@ date: 2019-11-22 14:21
 categories: [Computer Science, Algorithm]
 tags: [Recursion, Divide&Conquer]
 seo:
-  date_modified: 2019-11-22 19:20:32 -0800
+  date_modified: 2019-11-22 19:39:18 -0800
 ---
 
 ## Question
 
-Given a list of number, how many inversion pairs are there? If the list is [1, 3, 5, 2, 4, 6], there are three inversions: (3, 2), (3, 4), (3, 6). A brute force method would be using two loops, resulting in an algorithm with running time \(O(n^2)\), where $n$ is the length of the list.
+Given a list of number, how many inversion pairs are there? If the list is [1, 3, 5, 2, 4, 6], there are three inversions: (3, 2), (3, 4), (3, 6). A brute force method would be using two loops, resulting in an algorithm with running time \\( O(n^2) \\), where \\(n\\) is the length of the list.
+
 
 ```python
 def bruteForceCount(arr):
@@ -22,9 +23,9 @@ def bruteForceCount(arr):
 ## Divide and Conquer
 Can we do better?
 
-The Merge sort algorithm using the Divide and Conquer technique reduces the running time from $O(n^2)$ to $n\log n$. From my understanding, the magic happens at the cleaning up step. With two length $m$ **sorted** sublists, to form the original list, the running time is $O(m)$ instead of $O(m^2)$. Combined with the recursive tree structure, the depth of the tree is $\log_2 n$ and running time for each level, $i = 1, \ldots, \log_2 n$,   is $O(n)$. Finally, the merge sort algorithm has running time $n\log n$.
+The Merge sort algorithm using the Divide and Conquer technique reduces the running time from \\(O(n^2)\\) to \\(n\log n\\). From my understanding, the magic happens at the cleaning up step. With two length \\(m\\) **sorted** sublists, to form the original list, the running time is \\(O(m)\\) instead of \\(O(m^2)\\). Combined with the recursive tree structure, the depth of the tree is \\(\log_2 n\\) and running time for each level, \\(i = 1, \ldots, \log_2 n\\),   is \\(O(n)\\). Finally, the merge sort algorithm has running time \\(n\log n\\).
 
-To count the inversion, the subquestion is to count the inversions in the left sublist and right sublist. The cleanup work is counting the number of split inversions, i.e, for inversion pair $(a, b)$, $a \in$ left sublist and $b \in$ right sublist. With two sorted length $m$ sublists, the running time of the clean up work is $O(m)$. Hence, the counting inversion algorithm has running time $O(n\log n)$.
+To count the inversion, the subquestion is to count the inversions in the left sublist and right sublist. The cleanup work is counting the number of split inversions, i.e, for inversion pair \\((a, b)\\), \\(a \in\\) left sublist and \\(b \in\\) right sublist. With two sorted length \\(m\\) sublists, the running time of the clean up work is \\(O(m)\\). Hence, the counting inversion algorithm has running time \\(O(n\log n)\\).
 
 ## Statistical View
 
@@ -32,18 +33,14 @@ Where can we use this the algorithm? The inversion number can be used as a measu
 
 Suppose that customer I ranks apple = 1, orange = 2, grape = 3. And customer II ranks orange = 1, grape = 2 and apple = 3. Then we count inversion of list [3, 1, 2] as 2. If they give the same rank list, the number of inversions is 0.
 
-A nature question is if let two independent subjects rank $n$ items, what is the average numebr of the inversion. The answer is $n(n-1)/4$. The following proof utilizes indicator function:
-    $$I_{ij} = 1, \text{ if }  i < j \text{ and } X[i] > X[j].$$
-    Then number of inversions in the list $\mathbf{X}$ is $\sum_i\sum_j I_{ij}$.
-$$
-\begin{align}
-\mathbf{E}(\sum_i\sum_j I_{ij}) & = \sum_i\sum_j \mathbf{E}(I_{ij}) \\
-& = \sum_i\sum_{j = i + 1}^n P(X[i] > X[j]) \\
-& = \sum_{i=1}^n \sum_{j = i + 1}^n \frac{1}{2} \\
-& = [(n-1)+\ldots+1]\times \frac{1}{2} = \frac{n(n-1)}{4},
-\end{align}
-$$
-where the second equlity is due to the definition of expection of discrete random variable, and the reason for $P(X[i] > X[j]) = 1/2$ is that when randomly picking up any two elements from the list, the first is greater than the second with probability 1/2. 
+A nature question is if let two independent subjects rank \\(n\\) items, what is the average numebr of the inversion. The answer is \\(n(n-1)/4\\). The following proof utilizes indicator function:
+    \\[I_{ij} = 1, \text{ if }  i < j \text{ and } X[i] > X[j].\\]
+    Then number of inversions in the list \\(\mathbf{X}\\) is \\(\sum_i\sum_j I_{ij}\\).
+\\[ \mathbf{E}\left(\sum_{i=1}^n\sum_{j=1}^n I_{ij}\right) = \sum_{i=1}^n\sum_{j=1}^n \mathbf{E}(I_{ij}) 
+= \sum_{i=1}^n\sum_{j = i + 1}^n P(X[i] > X[j]) 
+= \sum_{i=1}^n \sum_{j = i + 1}^n \frac{1}{2} 
+= [(n-1)+\ldots+1]\times \frac{1}{2} = \frac{n(n-1)}{4},\\]
+where the second equlity is due to the definition of expection of discrete random variable, and the reason for \\(P(X[i] > X[j]) = 1/2\\) is that when randomly picking up any two elements from the list, the first is greater than the second with probability 1/2. 
 
 ## Python Code
 ```python
@@ -88,7 +85,7 @@ def mergeSortInversion(arr):
 ```
 
 ## Simulation
-Now we run a small simulation to estimate the average number of inversions in a length $n$ list. 
+Now we run a small simulation to estimate the average number of inversions in a length \\(n\\) list. 
 ```python
 import numpy as np
 
@@ -105,5 +102,5 @@ for m in mlist:
         aveCount = totalCount/1000
     totalCountlist.append(aveCount)
 ```
-Average number of inversions as a function of length $n$:
+Average number of inversions as a function of length \\(n\\):
     ![inversion_11222019](/assets/img/sample/inversion_11222019.png)

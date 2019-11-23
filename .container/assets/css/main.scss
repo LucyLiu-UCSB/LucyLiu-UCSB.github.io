@@ -383,7 +383,7 @@ footer {
 
 footer>div.d-flex {
   line-height: 1.2rem;
-  width: 90%;
+  width: 95%;
   max-width: 1035px;
 }
 
@@ -784,12 +784,6 @@ table tbody td {
   top: -3rem !important; /* same as topbar height. */
 }
 
-.flip {
-  -ms-transform: rotate(180deg); /* IE 9 */
-  -webkit-transform: rotate(180deg); /* Safari 3-8 */
-  transform: rotate(180deg);
-}
-
 .no-text-decoration {
   text-decoration: none;
 }
@@ -900,6 +894,10 @@ div.tooltip-inner { /* Overrided BS4 Tooltip */
     text-align: left;
   }
 
+  footer>div.d-flex {
+    width: 92%;
+  }
+
 }
 
 /* iPad 9.7" horizontal */
@@ -913,7 +911,7 @@ div.tooltip-inner { /* Overrided BS4 Tooltip */
 }
 
 
-@media all and (min-width: 768px) and (max-width: 831px) {
+@media all and (min-width: 768px) and (max-width: 830px) {
   .post img {
     max-width: calc(100% + 2rem);
   }
@@ -921,7 +919,7 @@ div.tooltip-inner { /* Overrided BS4 Tooltip */
 
 
 /* Hide SideBar and TOC */
-@media all and (max-width: 831px) {
+@media all and (max-width: 830px) {
 
   .sidebar-expand {
     transform: translateX(0) !important;
@@ -1152,7 +1150,7 @@ div.tooltip-inner { /* Overrided BS4 Tooltip */
 
   #profile-wrap {
     margin-top: 4rem;
-    margin-bottom: 6rem;
+    margin-bottom: 5rem;
     -ms-flex-direction: column!important;
     flex-direction: row!important;
   }
@@ -1268,7 +1266,7 @@ div.tooltip-inner { /* Overrided BS4 Tooltip */
   }
 
   footer>div.d-flex {
-    max-width: calc(1130px + 1%);
+    max-width: 1150px;
   }
 
   #back-to-top {
