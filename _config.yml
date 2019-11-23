@@ -39,7 +39,7 @@ google_site_verification: 828U5Odxo38lGZ7ca6xyIc_r3oCovf3Xsr-XyShs3Ek # change t
 #--------------------------
 
 # Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
-timezone: GMT-8
+timezone: America/Los_Angeles
 
 google_analytics:
   # Change to your Google Analytics ID

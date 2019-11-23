@@ -1,0 +1,145 @@
+<h2 id="preparation">Preparation</h2>
+
+<p>Follow the <a href="https://jekyllrb.com/docs/installation/">Jekyll Docs</a> to complete the installtion of basic environment (Ruby, RubyGem, Bundler and Jekyll). In addition, to use the funny script tools, we also need to install <a href="https://www.python.org/downloads/">Python</a>(version 3.5 or abover) and <a href="https://pypi.org/project/ruamel.yaml/">ruamel.yaml</a>.</p>
+
+<p>Next, <a href="https://github.com/cotes2020/jekyll-theme-chirpy/fork">fork</a> <strong>Chirpy</strong> and then clone your replicated repository locally.</p>
+
+<h2 id="install-jekyll-plugins">Install Jekyll Plugins</h2>
+
+<p>Go to root directory of the repository and run the following:</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">$</span><span class="w"> </span>bundle <span class="nb">install</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p><code class="highlighter-rouge">bundle</code> will install all the dependent Jekyll Plugins listed in file <code class="highlighter-rouge">Gemfile</code> automatically.</p>
+
+<h2 id="file-structure">File Structure</h2>
+
+<p>The main files and related brief introductions are listed below.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td><td class="rouge-code"><pre>jekyll-theme-chirpy/
+├── _data
+├── _includes      
+├── _layouts
+├── _posts          <span class="c"># posts stay here</span>
+├── _scripts
+├── assets      
+├── tabs
+│   └── about.md    <span class="c"># the ABOUT page</span>
+├── .gitignore
+├── .travis.yml     <span class="c"># remove it</span>
+├── 404.html
+├── Gemfile
+├── LICENSE
+├── README.md
+├── _config.yml     <span class="c"># configuration file</span>
+├── build.sh        <span class="c"># script tool</span>
+├── run.sh          <span class="c"># script tool</span>
+├── init.sh         <span class="c"># script tool</span>
+├── pv.sh           
+├── feed.xml
+├── index.html
+├── robots.txt
+├── search.json
+└── sitemap.xml
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>Customize the variables in file <code class="highlighter-rouge">_config.yml</code> as needed.</p>
+
+<h2 id="atom-feed">Atom Feed</h2>
+
+<p>The Atom feed url of your site will be:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre>&lt;SITE_URL&gt;/feed.xml
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">SITE_URL</code> was defined by variable <code class="highlighter-rouge">url</code> in file <code class="highlighter-rouge">_config.yml</code>.</p>
+
+<h2 id="run-locally">Run Locally</h2>
+
+<p>You may want to preview the site before publishing, so just run the script tool:</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">$</span><span class="w"> </span>bash run.sh
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<blockquote>
+  <p><strong>Note</strong>: The <em>Recent Update</em> list requires the latest git-log date of posts, thus make sure the changes in <code class="highlighter-rouge">_posts</code> have been committed before running this command.</p>
+</blockquote>
+
+<p>Open a brower and visit <a href="http://localhost:4000">http://localhost:4000</a>.</p>
+
+<p>Few days later, you may find that the file changes does not refresh in real time by using <code class="highlighter-rouge">run.sh</code>. Don’t worry, the advanced option <code class="highlighter-rouge">-r</code> (or <code class="highlighter-rouge">--realtime</code>) will solve this problem, but it requires <a href="http://emcrisostomo.github.io/fswatch/"><strong>fswatch</strong></a> to be installed on your machine.</p>
+
+<h2 id="deploying-to-github-pages">Deploying to GitHub Pages</h2>
+
+<p>Before the deployment begins, ensure the <code class="highlighter-rouge">url</code> in <code class="highlighter-rouge">_config.yml</code> has been set to <code class="highlighter-rouge">https://&lt;username&gt;.github.io</code>.</p>
+
+<h3 id="option-1-built-by-github-pages">Option 1: Built by GitHub Pages</h3>
+
+<p>By deploying your site in this way, you can push the source code to GitHub repository directly.</p>
+
+<blockquote>
+  <p><strong>Note</strong>: If you want to add any third-party Jekyll plugins or custom scripts to your project, please refer to <a href="#option-2-build-locally"><em>Option 2: Build locally</em></a>.</p>
+</blockquote>
+
+<p><strong>1</strong>. Rename your repository as <code class="highlighter-rouge">&lt;username&gt;.github.io</code>.</p>
+
+<p><strong>2</strong>. Commit the changes of your repository, then run the initialization script:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">$</span><span class="w"> </span>bash init.sh
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>It will automatically generates the <em>Latest Modified Date</em> and <em>Categories / Tags</em> page for the posts.</p>
+
+<p><strong>3</strong>. Push the changes to <code class="highlighter-rouge">origin/master</code> then go to GitHub website and enable GitHub Pages service for the repository <code class="highlighter-rouge">&lt;username&gt;.github.io</code>.</p>
+
+<p><strong>4</strong>. Visit <code class="highlighter-rouge">https://&lt;username&gt;.github.io</code> and enjoy.</p>
+
+<h3 id="option-2-build-locally">Option 2: Build Locally</h3>
+
+<p>For security reasons, GitHub Pages runs on <code class="highlighter-rouge">safe</code> mode, which means the third-party Jekyll plugins or custom scripts will not work. If you want to use any another third-party Jekyll plugins, <strong>your have to build locally rather than on GitHub Pages</strong>.</p>
+
+<p><strong>1</strong>. On GitHub website, create a brand new repository with name <code class="highlighter-rouge">&lt;username&gt;.github.io</code> and then clone it locally.</p>
+
+<p><strong>2</strong>. Build your site by:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="gp">$</span><span class="w"> </span>bash build.sh <span class="nt">-d</span> /path/to/&lt;username&gt;.github.io/
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>The build results will be stored in the root directory of <code class="highlighter-rouge">&lt;username&gt;.github.io</code> and don’t forget to push the changes of <code class="highlighter-rouge">&lt;username&gt;.github.io</code> to branch <code class="highlighter-rouge">master</code> on GitHub.</p>
+
+<p><strong>3</strong>. Go to GitHub website and enable GitHub Pages service for the new repository <code class="highlighter-rouge">&lt;username&gt;.github.io</code>.</p>
+
+<p><strong>4</strong>. Visit <code class="highlighter-rouge">https://&lt;username&gt;.github.io</code> and enjoy.</p>
