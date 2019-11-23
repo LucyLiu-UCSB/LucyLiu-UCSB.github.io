@@ -7,7 +7,7 @@ tags: [Recursion, Divide&Conquer]
 
 ## Question
 
-Given a list of number, how many inversion pairs are there? If the list is [1, 3, 5, 2, 4, 6], there are three inversions: (3, 2), (3, 4), (3, 6). A brute force method would be using two loops, resulting in an algorithm with running time $O(n^2)$, where $n$ is the length of the list.
+Given a list of number, how many inversion pairs are there? If the list is [1, 3, 5, 2, 4, 6], there are three inversions: (3, 2), (3, 4), (3, 6). A brute force method would be using two loops, resulting in an algorithm with running time \(O(n^2)\), where $n$ is the length of the list.
 
 ```python
 def bruteForceCount(arr):

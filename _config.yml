@@ -69,6 +69,7 @@ markdown: kramdown
 highlighter: rouge
 
 kramdown:
+  #math_engine: katex # added to use latex
   input: GFM
   syntax_highlighter: rouge
   syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
