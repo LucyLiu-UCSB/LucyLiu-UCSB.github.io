@@ -81,4 +81,8 @@ Therefore, the possible prefixes are item \\(\{1, 2, \ldots, i\}, i\leq n\\). In
 >> \\[A[i, x] = \max\\{A[i-1, x], A[i-1, x-w_i] + v_i\\}\\]
 - Return \\(A[n, W]\\)
 
-**c) Python code:**
+**c) An example:**
+
+![knapsackEx](/assets/img/sample/knapsack.jpg =100x)
+
+**d) Python code:**

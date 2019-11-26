@@ -32,10 +32,10 @@ Let \\(G_i\\) = first \\(i\\)  vertices of \\(G = \{1, \ldots, n\}\\) and \\(A[i
 
 - Initialization: \\(A[0] = 0, A[1] = w_1\\)
 - Main loop: 
-  
-  For \\(i = 2, 3, \ldots, n:\\)
-     \\[A[i] = \max\\{ A[i-1], A[i-2] + w_i\\}\\]
-    
+> For \\(i = 2, 3, \ldots, n:\\)
+     \\[A[i] = \max \\{ A[i-1], A[i-2] + w_i\\}\\]
+- Return: \\(A[-1]\\), the last element of A
+
 **c) Python code:**
 ```python
 def weightedIndependentSet(arr):
@@ -67,9 +67,22 @@ Let \\(V_{i, x}\\) be the value of the best solution on that: \\
 2) has total size \\(\leq x\\).
 
 If we add \\(i\\)th item into the list, based on the optimal solution with only \\(i-1\\) items, we march on in two ways:
-\\[V_{i, x} = \displaystyle{\left{ \begin{array}{lr}
-V_{i-1, x} & \text{case 1: ith item exculded}
-\end{array}\right.} \\]
+\\[V_{i, x} = \left\\{ \begin{array}{lr}
+V_{i-1, x} & \text{case 1: ith item exculded} \\\
+V_{i-1, x - w_i} + v_i & \text{case 2: ith item inculded}
+\end{array}\right. \\]
 
+Therefore, the possible prefixes are item \\(\{1, 2, \ldots, i\}, i\leq n\\). In addition, to form the recursion, value of \\(V_{i-1, x - w_i}\\) is needed. So we also solve the question with all possible capacities \\(x\in \{0, 1, 2, \ldots, W\}\\).
 
-**c) Python code:**
+- Initialization: \\(A[0, x] = 0\\) for \\(x = \{1, \ldots, W\}\\).
+- Main loop: 
+> For \\(i = 1, 2, \ldots, n\\):
+>> For \\(x = 0, 1, \ldots, W\\):
+>> \\[A[i, x] = \max\\{A[i-1, x], A[i-1, x-w_i] + v_i\\}\\]
+- Return \\(A[n, W]\\)
+
+**c) An example:**
+
+![knapsackEx](/assets/img/sample/knapsack.jpg = =100)
+
+**d) Python code:**
