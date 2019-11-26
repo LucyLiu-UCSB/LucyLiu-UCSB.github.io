@@ -83,6 +83,6 @@ Therefore, the possible prefixes are item \\(\{1, 2, \ldots, i\}, i\leq n\\). In
 
 **c) An example:**
 
-![knapsackEx](/assets/img/sample/knapsack.jpg =100x)
+<img src="/assets/img/sample/knapsack.jpg" alt="knapsackEx" width="200"/>
 
 **d) Python code:**
