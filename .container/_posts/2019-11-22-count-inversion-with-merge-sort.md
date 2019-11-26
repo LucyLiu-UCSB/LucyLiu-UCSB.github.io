@@ -58,7 +58,6 @@ def mergeSortInversion(arr):
         left, leftCount = mergeSortInversion(left)
         right, rightCount = mergeSortInversion(right)
         
-
         # the sorted list
         lsorted = []
         

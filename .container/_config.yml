@@ -161,9 +161,9 @@ exclude:
 sitemap_exclude:  # Sitemap will exclude the following items.
   - /norobots/
   - /assets/
-  # - /tabs/
-  # - /categories/
-  # - /tags/
+  - /tabs/
+  - /categories/
+  - /tags/
   - /posts/
   - /404.html
   - /redirects.json
