@@ -67,7 +67,7 @@ Let \\(V_{i, x}\\) be the value of the best solution on that: \\
 2) has total size \\(\leq x\\).
 
 If we add \\(i\\)th item into the list, based on the optimal solution with only \\(i-1\\) items, we march on in two ways:
-\\[V_{i, x} = \left\{ \begin{array}{lr}
+\\[V_{i, x} = \left\\{ \begin{array}{lr}
 V_{i-1, x} & \text{case 1: ith item exculded} \\
 V_{i-1, x - w_i} + v_i & \text{case 2: ith item inculded}
 \end{array}\right. \\]
