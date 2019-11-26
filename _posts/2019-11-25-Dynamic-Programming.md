@@ -17,9 +17,9 @@ The four examples discussed in Professor Tim Roughgarden's lecture video are her
 
 This is an easy question on LeetCode:
 
-  "You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
+"You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
 
-  Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police".
+Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police".
 
 **a) Problem:**
 - Input:  a sequence of vertices, with positive weight, \\(w_i, i = 1,\ldots, n\\). 
