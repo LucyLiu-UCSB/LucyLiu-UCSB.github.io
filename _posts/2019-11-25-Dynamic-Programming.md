@@ -3,8 +3,6 @@ title: Dynamic Programming
 date: 2019-11-25 23:37
 categories: [Computer Science, Algorithm]
 tags: [Dynamic Programming]
-seo:
-  date_modified: 2019-11-26 14:55:03 -0800
 ---
 
 I am following the free online courses, *Algorithms: Design and Analysis*, on [Stanford Lagnuita](https://lagunita.stanford.edu/courses) to learn Basic CS algorithms. While I am capable of understanding the Part1 fast and smoothly, I paused and repeated the video frequently when studying the dynamic programming in Part2. One could claim that there is nothing mysterious because the main tool used in the theoretical analysis is mere **Induction**, which we learned in high school. However, to find suitable subproblem leading to fast computation, it is nontrivial. I feel that mathematicians and computer scientists are clever in different ways. The mathematicians can tackle questions systematically with much longer logical chains, like proving one theorem using hundreds of pages. On the contrary, these efficient algorithms do not have a deep logical argument but are tricky.
@@ -19,9 +17,9 @@ The four examples discussed in Professor Tim Roughgarden's lecture video are her
 
 This is an easy question on LeetCode:
 
-    You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
+  "You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
 
-    Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.
+  Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police".
 
 **a) Problem:**
 - Input:  a sequence of vertices, with positive weight, \\(w_i, i = 1,\ldots, n\\). 
