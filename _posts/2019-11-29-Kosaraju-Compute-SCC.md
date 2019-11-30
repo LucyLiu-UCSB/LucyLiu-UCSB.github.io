@@ -3,6 +3,8 @@ title: Kosaraju's algorithm to find SCCs
 date: 2019-11-29 14:12
 categories: [Computer Science, Algorithm]
 tags: [Directed Graph, Recursion]
+seo:
+  date_modified: 2019-11-29 20:58:47 -0800
 ---
 
 ## Definition of Strongly Connected Components

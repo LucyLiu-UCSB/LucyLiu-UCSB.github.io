@@ -3,6 +3,8 @@ title: Dynamic Programming
 date: 2019-11-25 23:37
 categories: [Computer Science, Algorithm]
 tags: [Dynamic Programming]
+seo:
+  date_modified: 2019-11-29 20:58:47 -0800
 ---
 
 I am following the free online courses, *Algorithms: Design and Analysis*, on [Stanford Lagnuita](https://lagunita.stanford.edu/courses) to learn Basic CS algorithms. While I am capable of understanding the Part1 fast and smoothly, I paused and repeated the video frequently when studying the dynamic programming in Part2. One could claim that there is nothing mysterious because the main tool used in the theoretical analysis is mere **Induction**, which we learned in high school. However, to find suitable subproblem leading to fast computation, it is nontrivial. I feel that mathematicians and computer scientists are clever in different ways. The mathematicians can tackle questions systematically with much longer logical chains, like proving one theorem using hundreds of pages. On the contrary, these efficient algorithms do not have a deep logical argument but are tricky.
