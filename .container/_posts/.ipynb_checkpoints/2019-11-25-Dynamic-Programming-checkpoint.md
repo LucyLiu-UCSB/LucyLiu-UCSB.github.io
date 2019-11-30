@@ -5,7 +5,7 @@ categories: [Computer Science, Algorithm]
 tags: [Dynamic Programming]
 ---
 
-I am following the free open courses, *Algorithms: Design and Analysis*, on [Stanford Lagnuita](https://lagunita.stanford.edu/courses) to learn Basic CS algorithms. While I am capable of understanding the Part1 fast and smoothly, I paused and repeated the video frequently when studying the dynamic programming in Part2. One could claim that there is nothing mysterious because the main tool used in the theoretical analysis is mere **Induction**, which we learned in high school. However, to find suitable subproblem leading to fast running time, it is nontrivial. I feel that mathematicians and computer scientists are clever in different ways. The mathematicians can tackle questions systematically with much longer logical chains, like proving one theorem using hundreds of pages. On the contrary, these efficient algorithms do not have a deep logical argument but are tricky.
+I am following the free online courses, *Algorithms: Design and Analysis*, on [Stanford Lagnuita](https://lagunita.stanford.edu/courses) to learn Basic CS algorithms. While I am capable of understanding the Part1 fast and smoothly, I paused and repeated the video frequently when studying the dynamic programming in Part2. One could claim that there is nothing mysterious because the main tool used in the theoretical analysis is mere **Induction**, which we learned in high school. However, to find suitable subproblem leading to fast computation, it is nontrivial. I feel that mathematicians and computer scientists are clever in different ways. The mathematicians can tackle questions systematically with much longer logical chains, like proving one theorem using hundreds of pages. On the contrary, these efficient algorithms do not have a deep logical argument but are tricky.
 
 The four examples discussed in Professor Tim Roughgarden's lecture video are here.
 - Weighted independent sets/ Professional house robber question
@@ -17,9 +17,9 @@ The four examples discussed in Professor Tim Roughgarden's lecture video are her
 
 This is an easy question on LeetCode:
 
-You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
+"You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.
 
-Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.
+Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police."
 
 **a) Problem:**
 - Input:  a sequence of vertices, with positive weight, \\(w_i, i = 1,\ldots, n\\). 
@@ -111,7 +111,7 @@ Give two strings \\(X = x_1, \ldots, x_m\\) and \\(Y = y_1, \ldots, y_n\\), find
 
 **b) Subproblem formulation:**
 
-There are three relevant possibilities for the contents of the final position of an optimal alignment, which corresponds to three different ways of proceeding. \\\ 
+There are three relevant possibilities for the contents of the final position of an optimal alignment, which corresponds to three different ways of proceeding. \\
 Let \\(X' = X-x_m\\) and \\(Y' = Y-y_n\\). Define \\(S_{i,j} = \\) score of optimal alignment of \\(X_i = \{1, \ldots, i\}\\) and \\(Y_j = \{1, \ldots, j\}\\).
 - case1: \\(x_m, y_n\\) matched/mismatched ->  alignment of \\(X'\\) and \\(Y'\\) is optimal.
 - case2: \\(x_m\\) matched with a gap -> alignment of \\(X'\\) and \\(Y\\) is optimal.
@@ -159,37 +159,36 @@ Given set of probabilities over the keys, find the search tree that miminizes th
 **a) Problem:**
 - Input: frequenties \\(p_1, \ldots, p_n\\) for items \\(1, \ldots, n\\) (assume items in sorted order, \\(1<2<, \ldots ,< n\\)).
 - Output: Compute a valid search tree that minimizes the weighted (average) search time, \\(C(T)\\).
-\\[C(T) = \sum_{\text{items } i} p_i \times \{\text{depth of i in } T + 1 \}\\]
+\\[C(T) = \sum_{\text{items } i} p_i \times \\{\text{depth of i in } T + 1 \\}\\]
 
 **b) Subproblem formulation:**
 
-For \\(1\leq i\leq j \leq n\\), let \\(C_{i,j} = \\) weighted search cost of an optimal BST for the item \\(\{i, i+1, \ldots, j-1, j\}\\). We solve smallest subproblems with fewest number \\(j - i + 1\\) of itmes first.
+For \\(1\leq i\leq j \leq n\\), let \\(C_{i,j} = \\) weighted search cost of an optimal BST for the item \\(\\{i, i+1, \ldots, j-1, j\\}\\). We solve smallest subproblems with fewest number  \\(j - i + 1\\) of itmes first.
 
 - Initialization: \\(A[i, 0] = A[0,i ] = i\cdot \alpha_g\\) for \\(i\geq 0\\).
 - Main loop: 
 > For \\(s = 0, 1, \ldots, n-1\\): *Note: s represents (j-i)*
 >> For \\(j = 1, 1, \ldots, n\\): *Note: i + s = j* 
->> \\[A[i, i + s] = \min_{r = i}^{i + s} \left\\{ \sum_{k = i}^{i + s} + A[i, r-1] + A[r+1, i+s]\right\\{ \\]
+>> \\[A[i, i + s] = \min_{r = i}^{i + s} \left\\{ \sum_{k = i}^{i + s} p_k + A[i, r-1] + A[r+1, i+s]\right\\} \\]
 - Return \\(A[m, n]\\)
 
-**d) R code:**
+**c) R code:**
 
 ```r
 optimalBST <- function(wvec) {
-    
         n = length(wvec)
         res = matrix(nrow = n, ncol = n)
-    
         for (s in 0:n-1) {
                 for (i in 1:n) {
                         sss = NULL
-                        for (r in i:min(s+i, n)) {
-                                fir = sum(wvec[i:min(s+i, n)])
+                        i_s = min(s+i, n)
+                        for (r in i:i_s) {
+                                fir = sum(wvec[i:i_s])
                                 sec = ifelse(i <= r-1, res[i, r-1], 0)
-                                thi = ifelse(r + 1 <= min(i+s, n), res[r+1, min(i+s, n)], 0)
+                                thi = ifelse(r + 1 <= i_s, res[r+1, i_s], 0)
                                 sss = c(sss, fir + sec + thi)
                         }
-                        if (i+s <= 7) { res[i, i +s] = min(sss)}
+                        if (i+s <= n) { res[i, i + s] = min(sss)}
                 }
         }
         return(res[1, n])        
