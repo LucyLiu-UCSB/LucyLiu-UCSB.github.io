@@ -3,6 +3,8 @@ title: Some useful operations in MySQL--Median level
 date: 2019-12-05 16：12
 categories: [Technical Tools]
 tags: [SQL]
+seo:
+  date_modified: 2019-12-08 19:00:35 -0800
 ---
 
 The second post of SQL includes median level applications. 
