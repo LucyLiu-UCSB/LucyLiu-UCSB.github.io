@@ -33,7 +33,6 @@ WHERE w1.RecordDate = DATE_SUB(w2.RecordDate, INTERVAL 1 DAY) and  w2.Temperatur
 ```
 ```sql
 WHERE RecordDate BETWEEN '2015-01-01' and '2015-01-10'
-
 ```
 ## `DISTINCT` result
 

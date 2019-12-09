@@ -39,7 +39,63 @@ ORDER BY player_id
 ```
 The `ORDER BY` clause defines by what ordering the cumulation should happen.
 
+Other useful windown functions are
+
+```sql
+ROW_NUMBER() OVER()
+RANK() OVER()
+DENSE_RANK() OVER()
+```
+
 ```sql
 ### MySQL
+SELECT a1.player_id, a1.event_date, SUM(a2.games_played) as games_played_so_far
+FROM Activity a1, Activity a2
+WHERE a1.player_id = a2.player_id AND a1.event_date >= a2.event_date
+GROUP BY a1.player_id, a1.event_date
+```
 
+## conditions in SQL
+
+`Transactions` table:
+
+| id   | country | state    | amount | trans_date |
+|-----:|--------:|---------:|-------:|-----------:|
+| 121  | US      | approved | 1000   | 2018-12-18 |
+| 122  | US      | declined | 2000   | 2018-12-19 |
+| 123  | US      | approved | 2000   | 2019-01-01 |
+| 124  | DE      | approved | 2000   | 2019-01-07 |
+
+**Q:** find for each month and country, the number of transactions and their total amount, the number of approved transactions and their total amount.
+
+```sql
+##
+SELECT LEFT(trans_date, 7) AS month
+##
+SELECT DATE_FORMAT(trans_date, '%Y-%m') AS month, country, 
+       COUNT(*) AS trans_count,
+       SUM(IF(state = 'approved', 1, 0)) AS approved_count, 
+       SUM(amount) AS trans_total_amount, 
+       SUM(CASE WHEN state = 'approved' THEN amount ELSE 0 END) AS approved_total_amount
+FROM Transactions
+GROUP BY month, country
+                           
+```
+
+## function in SQL
+Write a SQL query to get the nth highest salary from the `Employee` table.
+
+```sql
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+DECLARE M INT;
+SET M = N - 1;
+  RETURN (
+    
+      SELECT DISTINCT Salary
+      FROM Employee
+      ORDER BY Salary DESC
+      LIMIT 1 OFFSET M
+      
+  );END
 ```

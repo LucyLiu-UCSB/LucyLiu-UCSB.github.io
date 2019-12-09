@@ -3,8 +3,6 @@ title: Some useful operations in MySQL--Median level
 date: 2019-12-05 16：12
 categories: [Technical Tools]
 tags: [SQL]
-seo:
-  date_modified: 2019-12-06 13:17:56 -0800
 ---
 
 The second post of SQL includes median level applications. 
@@ -40,6 +38,14 @@ FROM Activity
 ORDER BY player_id
 ```
 The `ORDER BY` clause defines by what ordering the cumulation should happen.
+
+Other useful windown functions are
+
+```sql
+ROW_NUMBER() OVER()
+RANK() OVER()
+DENSE_RANK() OVER()
+```
 
 ```sql
 ### MySQL
