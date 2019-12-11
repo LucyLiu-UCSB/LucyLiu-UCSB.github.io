@@ -1,10 +1,10 @@
 ---
 title: Mathematical definition of Manifold
-date: 2019-12-10 17：07
+date: 2019-12-10 17:07
 categories: [Manifold Learning, Mathematical essentials]
 tags: [Manifold, Embedding]
 seo:
-  date_modified: 2019-12-10 19:31:20 -0800
+  date_modified: 2019-12-10 19:37:19 -0800
 ---
 
 The machine learning community has borrowed lots of terminologies from mathematics. To gain a deeper understanding of the feature learning/dimension reduction approaches, I make some notes of the rigorous definition in math. 
