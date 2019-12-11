@@ -1,6 +1,6 @@
 ---
 title: Basic embedding algorithms
-date: 2019-12-10 19：27
+date: 2019-12-10 19:27
 categories: [Manifold Learning, Embedding methods]
 tags: [Manifold, Embedding]
 ---
