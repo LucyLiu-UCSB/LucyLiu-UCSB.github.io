@@ -1,8 +1,10 @@
 ---
-title: Some useful operations in MySQL
+title: Some useful operations in MySQL--Easy level
 date: 2019-12-05 09：08
 categories: [Technical Tools]
 tags: [SQL]
+seo:
+  date_modified: 2019-12-08 19:00:35 -0800
 ---
 
 I am practicing some SQL question to prepare for 2020 summer intership interviews. I learned some useful operations beyound the basic `SELECT`, `FROM`, `WHERE`, `GROUP BY` and `HAVING`. 
@@ -33,7 +35,6 @@ WHERE w1.RecordDate = DATE_SUB(w2.RecordDate, INTERVAL 1 DAY) and  w2.Temperatur
 ```
 ```sql
 WHERE RecordDate BETWEEN '2015-01-01' and '2015-01-10'
-
 ```
 ## `DISTINCT` result
 
