@@ -3,6 +3,8 @@ title: Embedding algorithms 1 -- Multidimensional scaling
 date: 2019-12-10 19:27
 categories: [Manifold Learning, Embedding methods]
 tags: [Manifold, Embedding]
+seo:
+  date_modified: 2019-12-16 09:59:16 -0800
 ---
 
 Manifold learning is a class of unsupervised estimators that seeks to describe datasets as low-dimensional manifolds embedded in high-dimensional spaces. 
