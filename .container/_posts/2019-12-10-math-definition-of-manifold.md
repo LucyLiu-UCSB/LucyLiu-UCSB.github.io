@@ -4,7 +4,7 @@ date: 2019-12-10 17:07
 categories: [Manifold Learning, Mathematical essentials]
 tags: [Manifold, Embedding]
 seo:
-  date_modified: 2019-12-10 19:43:14 -0800
+  date_modified: 2019-12-15 20:07:00 -0800
 ---
 
 The machine learning community has borrowed lots of terminologies from mathematics. To gain a deeper understanding of the feature learning/dimension reduction approaches, I make some notes of the rigorous definition in math. 

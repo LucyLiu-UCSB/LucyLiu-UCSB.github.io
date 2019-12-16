@@ -19,6 +19,7 @@ In the following, we will go through
 - Sparse distance matrix: when the distance matrix is sparse, we could first complete the distance matrix or only using the observed element when constructing the stress loss function.  
 
 ## Classical MDS
+
 Suppose we observe
 - \\(\mathbf{Y} = [y_1, \ldots, y_n], y_i\in \mathbb{R}^d\\)
 - edm(\\(\mathbf{Y}\\)) the euclidean distance matrix created from columns in \\(\mathbf{Y}\\)
@@ -27,7 +28,7 @@ Suppose we observe
 MDS seeks to find \\(x_1, \ldots, x_n\in \mathbb{R}^p\\), called a configuration, so that
 \\[d_{ij}\approx||x_i-x_j|| \text{ as close as possible.}\\]
 
-When the distance matrix \\(D\\) is  edm(\\(\mathbf{Y}\\)), for large \\(p\\), there exists a configuration with exact/perfect distance match \\(d_{ij}=||x_i-x_j||\\). This is the case call classical MDS which is equivalent to PCA. 
+When the distance matrix \\(D\\) is  edm(\\(\mathbf{Y}\\)), for large \\(p\\), there exists a configuration with exact/perfect distance match \\(d_{ij}=\parallel x_i-x_j\parallel\\). This is the case call classical MDS which is equivalent to PCA. 
 
 **a) loss function:**
 
@@ -46,10 +47,10 @@ Apply \\(\mathbf{J} = \mathbf{I}-\frac{1}{n}\mathbf{11}^T\\) on both sides,
 
 **c) Algorithm-cMDS:**
 > function cMDS(D, p)
->> \\(\mathbf{J}\leftarrow \mathbf{I}-\frac{1}{n}\mathbf{11}^T\\), which is the centering matrix <br/>
->> \\(\mathbf{G}\leftarrow -\frac{1}{2}\mathbf{JDJ}^T\\), which is the centering matrix <br/>
->> \\(\mathbf{U}, [\lambda_i]_{i = 1}^n \leftarrow \text{EigenDecomp}(\mathbf{G})\\) <br/>
->> return \\([\text{diag}(\sqrt{\lambda_1}, \ldots, \sqrt{\lambda_p}), 0_{p\times (n-p)})\mathbf{U}^T\\)<br/>
+>> \\(\mathbf{J}\leftarrow \mathbf{I}-\frac{1}{n}\mathbf{11}^T,\text{ which is the centering matrix} \\)<br/> 
+>> \\(\mathbf{G}\leftarrow -\frac{1}{2}\mathbf{JDJ}^T\text{ ,which is the centering matrix}\\)<br/>
+>> \\(\mathbf{U}, (\lambda_i)_{i = 1}^n \leftarrow \text{EigenDecomp}(\mathbf{G})\\)<br/>
+>> \\(\text{return [diag}(\sqrt{\lambda_1}, \ldots, \sqrt{\lambda_p}), \mathbf{0}]\mathbf{U}^T\\)<br/>
 
 **d) cMDS in python:**
 
@@ -58,8 +59,7 @@ from mpl_toolkits import mplot3d
 fig, ax = plt.subplots(figsize=(15, 11))
 fig.subplots_adjust(left=0, right=1, bottom=0, top=1)
 ax = plt.axes(projection='3d')
-ax.scatter3D(X3[:, 0], X3[:, 1], X3[:, 2],
-             **colorize, s = 80)
+ax.scatter3D(X3[:, 0], X3[:, 1], X3[:, 2], **colorize, s = 80)
 ax.view_init(azim=70, elev=50)
 fig.savefig('hello3D.png')
 ```
@@ -77,8 +77,26 @@ plt.axis('equal');
 
 ## Metric MDS
 
+The general metric MDS relaxes the condition \\(d_{ij} \approx \hat{d}_{ij}\\) by allowing \\(\hat{d}_{ij} \approx f(d_{ij})\\), for some monotone function \\(f\\). Unlike cMDS, which has a explict solution, the general mMDS is an optimization process minimizing *stress* function, and is solved by iterative algorithms.
+
+For instance, we could model \\(f\\) as a parametric monotonic function as \\(f(d_{ij}) = \alpha + \beta d_{ij}\\). Define the stress function as
+\\[\text{stress} = \mathcal{L}(\hat{d}_{ij}) = \left(\frac{1}{\sum_{l<k} d^2_{lk}} \sum_{i<j} (\hat{d}_{ij} - f(d_{ij}))^2\right)^{1/2}\\]
+and mMDS minimizes \\(\mathcal{L}(\hat{d}_{ij})\\) over all \\(\mathbf{X}\\) and \\(\alpha, \beta\\).
+
+There are a pletora of modified stress loss functions. For instance, Sammon's stress normalizes the squared-errors in pairwise distance by using the distance in the original space. As a result, Sammon mapping preserves the small \\(d_{ij}\\) better, giving them a greater degree of importance in the fitting procedure.
+
 ## Non-metric MDS
 
+In many applications, the dissimilarities are known only by their rank order.
+- In this case, \\(f\\) is only implicitly defined.
+- \\(f(d_{ij}) = d^*_{ij}\\) are called *dispartities*, which only preserve the order of \\(d_{ij}\\), i.e.,
+\\[d_{ij} < d_{kl} \Leftrightarrow f(d_{ij})\leq f(d_{kl}) \Leftrightarrow d^*_{ij}\leq d^*_{kl}\\]
+- Kruskal's non-metric MDS minimizes the stress-1
+\\[\text{stress-1}(\hat{d}_{ij}, d^*_{ij}) = \left(\frac{1}{\sum_{l<k} d^2_{lk}} \sum_{i<j} (\hat{d}_{ij} - d^*_{ij})^2\right)^{1/2}.\\]
+- The original dissimilarites are only used in checking the order condition.
+
+
+
 ## Sparse distance matrix
-For advanced sparse distance matrix case, here is the reference, 
+For advanced sparse distance matrix case, here is a useful reference, 
 [Euclidean Distance Matrices Essential Theory, Algorithms and Applications](https://arxiv.org/abs/1502.07541).
