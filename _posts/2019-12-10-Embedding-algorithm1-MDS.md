@@ -3,8 +3,6 @@ title: Embedding algorithms 1 -- Multidimensional scaling
 date: 2019-12-10 19:27
 categories: [Manifold Learning, Embedding methods]
 tags: [Manifold, Embedding]
-seo:
-  date_modified: 2019-12-15 21:00:52 -0800
 ---
 
 Manifold learning is a class of unsupervised estimators that seeks to describe datasets as low-dimensional manifolds embedded in high-dimensional spaces. 
@@ -79,22 +77,23 @@ plt.axis('equal');
 
 ## Metric MDS
 
-The general metric MDS relaxes the condition \\(d_{ij} \approx \hat{d}_{ij}\\) by allowing \\(\hat{d}_{ij} \approx f(d_{ij})\\), for some monotone function \\(f\\). Unlike cMDS, which has a explict solution, the general mMDS is an optimization process minimizing *stress* function, and is solved by iterative algorithms.
+The general metric MDS relaxes the condition \\(d_{ij} \approx \hat{d_{ij}}\\) by allowing \\(\hat{d_{ij}}\approx f(d_{ij})\\), for some monotone function \\(f\\). Unlike cMDS, which has a explict solution, the general mMDS is an optimization process minimizing *stress* function, and is solved by iterative algorithms.
 
 For instance, we could model \\(f\\) as a parametric monotonic function as \\(f(d_{ij}) = \alpha + \beta d_{ij}\\). Define the stress function as
-\\[\text{stress} = \mathcal{L}(\hat{d}_{ij}) = \left(\frac{1}{\sum_{l<k} d^2_{lk}} \sum_{i<j} (\hat{d}_{ij} - f(d_{ij}))^2\right)^{1/2}\\]
+\\[\text{stress} = \mathcal{L}(\hat{d_{ij}}) =\left(\frac{1}{\sum_{l<k} d_{lk}^2}\sum_{i<j} (\hat{d_{ij}} - f(d_{ij}))^2\right)^{1/2}\\]
 and mMDS minimizes \\(\mathcal{L}(\hat{d}_{ij})\\) over all \\(\mathbf{X}\\) and \\(\alpha, \beta\\).
 
 There are a pletora of modified stress loss functions. For instance, Sammon's stress normalizes the squared-errors in pairwise distance by using the distance in the original space. As a result, Sammon mapping preserves the small \\(d_{ij}\\) better, giving them a greater degree of importance in the fitting procedure.
+
 
 ## Non-metric MDS
 
 In many applications, the dissimilarities are known only by their rank order.
 - In this case, \\(f\\) is only implicitly defined.
-- \\(f(d_{ij}) = d^*_{ij}\\) are called *dispartities*, which only preserve the order of \\(d_{ij}\\), i.e.,
-\\[d_{ij} < d_{kl} \Leftrightarrow f(d_{ij})\leq f(d_{kl}) \Leftrightarrow d^*_{ij}\leq d^*_{kl}\\]
+- \\(f(d_{ij}) = d_{ij}^\star\\) are called *dispartities*, which only preserve the order of \\(d_{ij}\\), i.e., 
+\\[d_{ij} < d_{kl} \Leftrightarrow f(d_{ij})\leq f(d_{kl}) \Leftrightarrow d_{ij}^{\star}\leq d_{kl}^{\star}\\]
 - Kruskal's non-metric MDS minimizes the stress-1
-\\[\text{stress-1}(\hat{d}_{ij}, d^*_{ij}) = \left(\frac{1}{\sum_{l<k} d^2_{lk}} \sum_{i<j} (\hat{d}_{ij} - d^*_{ij})^2\right)^{1/2}.\\]
+\\[\text{stress-1}(\hat{d_{ij}}, d_{ij}^{\star}) = \left(\frac{1}{\sum_{l<k} d_{lk}^2} \sum_{i<j} (\hat{d_{ij}} - d_{ij}^\star)^2\right)^{1/2}.\\]
 - The original dissimilarites are only used in checking the order condition.
 
 
