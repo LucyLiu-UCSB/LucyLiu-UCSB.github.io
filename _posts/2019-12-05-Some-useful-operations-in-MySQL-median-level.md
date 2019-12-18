@@ -4,7 +4,7 @@ date: 2019-12-05 16：12
 categories: [Technical Tools, SQL]
 tags: [SQL]
 seo:
-  date_modified: 2019-12-08 19:00:35 -0800
+  date_modified: 2019-12-17 16:08:25 -0800
 ---
 
 The second post of SQL includes median level applications. 
