@@ -3,8 +3,6 @@ title: Embedding algorithms 2 -- Locally linear embedding
 date: 2019-12-27 19:11
 categories: [Manifold Learning, Embedding methods]
 tags: [Manifold, Embedding]
-seo:
-  date_modified: 2019-12-27 23:20:31 -0800
 ---
 
 ## Introduction
@@ -72,15 +70,16 @@ Another crux is the relationship between \\(k, d\\) and \\(D\\). One definite re
 
 The *linearity* of LLE comes form the weight finding step. For each point \\(\mathbf{x}_i\\), it is defined as a linear combination of its neighbors. 
 
-\\[ \mathbf{x}_i = \sum_j w_{ij} \mathbf{x}_{j}. \\]
+$$\mathbf{x}_i=\sum_jw_{ij}\mathbf{x}_j.$$
 
 Then the weights are the optimizer of the cost function:
 
-\\[L(\mathbf{w}_{ij}, j = 1,\ldots, n) = ||\mathbf{x}_i - \sum_j w_{ij} \mathbf{x}_j||^{2} + \alpha \sum_j w^{2}_{ij}.\\]
+$$L(\mathbf{w}_{ij}, j = 1,\ldots, n) = ||\mathbf{x}_i-\sum_jw_{ij}\mathbf{x}_j||^{2} + \alpha\sum_jw^{2}_{ij}.$$
 
 The second term in the cost function is the \\(L_2\\) regularizor, which encourages equal weights.
-The above optimization problem is subject to two constraints: 
-1. sparseness: if \\(\mathbf{x}_j \\) is out of the neighborhood of \\(\mathbf{x}_i\\), \\(w_{ij} = 0 \\).
+The above optimization problem is subject to two constraints:
+
+1. sparseness: if \\(\mathbf{x}\_{j}\\) is out of the neighborhood of \\(\mathbf{x}_i\\), then \\(w\_{ij} = 0\\).
 2. invariance constraint: the local structure in the neighborhood should be invariance to translation, rotations and rescalings. Hence, \\(\sum_j w_{ij} = 1\\). 
 
 Indeed, the weigh finding step can be broken into \\(n\\) subproblems. Each is a least sqaure question subject to the sum to one condition, which could be easily solved by formulating a Lagrange multiplier question. 
@@ -89,7 +88,7 @@ Indeed, the weigh finding step can be broken into \\(n\\) subproblems. Each is a
 
 After finding the weight matrix \\(\mathbf{W}\\), it is used to represent the geometric information in \\(\mathbf{X}\\) so that  \\(\mathbf{X}\\)  does not appear in the final reconstruction step. The goal in this step is to find out \\(n\times d, \mathbf{Y},\\) matrix which minimizes
 
-\\[\Phi(\mathbf{Y}) = \sum_i||\mathbf{y}_i - \sum_{j\neq i} w_{ij}\mathbf{y}_j||^{2}.\\]
+$$\Phi(\mathbf{Y}) =\sum_i||\mathbf{y}_i -\sum_{j\neq i}w_{ij}\mathbf{y}_j||^{2}.$$
 
 To break the degeneracy/make the optimization identifiable, the following assumptions are added:
 
