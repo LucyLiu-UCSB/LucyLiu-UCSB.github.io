@@ -3,6 +3,8 @@ title: Embedding algorithms 2 -- Locally linear embedding
 date: 2019-12-27 19:11
 categories: [Manifold Learning, Embedding methods]
 tags: [Manifold, Embedding]
+seo:
+  date_modified: 2019-12-27 23:43:33 -0800
 ---
 
 ## Introduction
