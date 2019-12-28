@@ -3,6 +3,8 @@ title: Embedding algorithms 1 -- Multidimensional scaling
 date: 2019-12-10 19:27
 categories: [Manifold Learning, Embedding methods]
 tags: [Manifold, Embedding]
+seo:
+  date_modified: 2019-12-16 09:59:16 -0800
 ---
 
 Manifold learning is a class of unsupervised estimators that seeks to describe datasets as low-dimensional manifolds embedded in high-dimensional spaces. 
@@ -48,7 +50,7 @@ Apply \\(\mathbf{J} = \mathbf{I}-\frac{1}{n}\mathbf{11}^T\\) on both sides,
 **c) Algorithm-cMDS:**
 > function cMDS(D, p)
 >> \\(\mathbf{J}\leftarrow \mathbf{I}-\frac{1}{n}\mathbf{11}^T,\text{ which is the centering matrix} \\)<br/> 
->> \\(\mathbf{G}\leftarrow -\frac{1}{2}\mathbf{JDJ}^T\text{ ,which is the centering matrix}\\)<br/>
+>> \\(\mathbf{G}\leftarrow -\frac{1}{2}\mathbf{JDJ}^T\\)<br/>
 >> \\(\mathbf{U}, (\lambda_i)_{i = 1}^n \leftarrow \text{EigenDecomp}(\mathbf{G})\\)<br/>
 >> \\(\text{return [diag}(\sqrt{\lambda_1}, \ldots, \sqrt{\lambda_p}), \mathbf{0}]\mathbf{U}^T\\)<br/>
 

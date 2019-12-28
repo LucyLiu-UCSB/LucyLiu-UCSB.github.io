@@ -3,6 +3,8 @@ title: Asterisk in Python
 date: 2019-12-17 7：49
 categories: [Technical Tools, Python programming]
 tags: [Python]
+seo:
+  date_modified: 2019-12-17 16:08:25 -0800
 ---
 
 The use of `*` in python is related to the way of passing parameters to a function. First, in python, we have three types of parameters, *Positional-or-Keyword Arguments*, *Positional-Only Parameters* and *Keyword-Only Arguments*. The way most frequently used is *Positional-or-Keyword Arguments*, so we can either specify the name of argument or not when passing arguments in order. `*` and `**` are especially useful when the function has a varying/arbitrary number of parameters. The difference between `*` and `**` is:
