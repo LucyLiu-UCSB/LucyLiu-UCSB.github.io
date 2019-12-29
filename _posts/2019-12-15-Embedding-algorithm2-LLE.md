@@ -4,7 +4,7 @@ date: 2019-12-27 19:11
 categories: [Manifold Learning, Embedding methods]
 tags: [Manifold, Embedding]
 seo:
-  date_modified: 2019-12-27 23:43:33 -0800
+  date_modified: 2019-12-28 18:28:30 -0800
 ---
 
 ## Introduction
