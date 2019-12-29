@@ -100,14 +100,14 @@ To break the degeneracy/make the optimization identifiable, the following assump
 Since the geometric structure should be invariant under rotation, transformation (+/- constant), and homogeneously rescale the outputs, we can always make the covariance of \\(\mathbf{Y}\\) to be diagonal though the diagonal entris might be differ. The extra assumption is all the embedding coordinates should be of the same order.
 
 The main difference between step 2 and step 3 is that step 3 is a global question so that the optimization question can not be seperated into small questions. It turns out the constrained optimization question is equivalent to find the smallest \\(d+1\\) eigenvector of a semipositive definite matrix. 
-\\[\Phi(\mathbf{Y}) = ||\mathbf{Y} - \mathbf{WY}||^2 = [(\mathbf{I} - \mathbf{W})\mathbf{Y}]^T[(\mathbf{I} - \mathbf{W})\mathbf{Y}] = \mathbf{Y}^T\mathbf{M}\mathbf{Y}.\\]
+\\[\Phi(\mathbf{Y}) = ||\mathbf{Y} - \mathbf{WY}||^2 = \text{trace}([(\mathbf{I} - \mathbf{W})\mathbf{Y}]^T[(\mathbf{I} - \mathbf{W})\mathbf{Y}]) = \text{trace}(\mathbf{Y}^T\mathbf{M}\mathbf{Y}).\\]
 
 First \\(\mathbf{M}\\) is a semipositive definite matrix and has 0 as an eigenvalue with \\(\mathbf{1}\\) as the corresponding eigenvector.
 
 \\[(\mathbf{I} - \mathbf{W})^T(\mathbf{I} - \mathbf{W})\mathbf{1} = (\mathbf{I} - \mathbf{W})^T(\mathbf{1} - \mathbf{1}) = 0 \text{ because of } \sum_jw_{ij} = 1.\\]
 
 Now form the Lagrange question
-\\[L(\mathbf{Y}, \mu) = \mathbf{Y}^T\mathbf{M}\mathbf{Y} - \mu_1(\mathbf{Y}_1^T\mathbf{Y}_1 - n)-\ldots - \mu_d(\mathbf{Y}_d^T\mathbf{Y}_d - n).\\]
+\\[L(\mathbf{Y}, \mu) = \text{trace}(\mathbf{Y}^T\mathbf{M}\mathbf{Y}) - \mu_1(\mathbf{Y}_1^T\mathbf{Y}_1 - n)-\ldots - \mu_d(\mathbf{Y}_d^T\mathbf{Y}_d - n).\\]
 Take the first detivative with respect to \\(\mathbf{Y}_i\\), the ith column of \\(\mathbf{Y}\\), and set to be 0,
 \\[\frac{\partial L(\mathbf{Y}, \mu)}{\mathbf{Y}_i} = 2 \mathbf{MY}_i - 2\mu_i\mathbf{Y}_i = 0.\\]
 Finally, we get \\(\mathbf{MY}_i = \mu_i \mathbf{Y}_i\\). Thus, in order to minimize \\(\Phi(\mathbf{Y})\\), \\(\mathbf{Y}_i\\) should be the \\(i+1\\)th smallest eigenvector of \\(\mathbf{M}\\). Besides, the eigenvectors are orthogonal to each other and \\(\mathbf{Y}_i\mathbf{1} = 0\\) since \\(\mathbf{1}\\) is the eigenvector of eigenvalue 0, which means the columns of \\(\mathbf{Y}\\) have mean 0.  
