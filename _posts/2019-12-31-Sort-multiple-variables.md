@@ -3,6 +3,8 @@ title: Sort multiple variables
 date: 2019-12-31 14:41
 categories: [Technical Tools, Python programming]
 tags: [Python]
+seo:
+  date_modified: 2019-12-31 15:40:53 -0800
 ---
 
 Usually, we are proficient at sorting the data frame/table by one variable. But there are cases that we need a second variable to break the ties. In this post, I will summarize how to do this in Python, R, and SQL. 
