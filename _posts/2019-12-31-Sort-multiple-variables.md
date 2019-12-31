@@ -3,8 +3,6 @@ title: Sort multiple variables
 date: 2019-12-31 14:41
 categories: [Technical Tools, Python programming]
 tags: [Python]
-seo:
-  date_modified: 2019-12-31 15:38:42 -0800
 ---
 
 Usually, we are proficient at sorting the data frame/table by one variable. But there are cases that we need a second variable to break the ties. In this post, I will summarize how to do this in Python, R, and SQL. 
@@ -22,7 +20,7 @@ The question considered here is a table of temperature per day. We are asked to 
 
 ## Python tuple
 
-```Python
+```python
 import pandas as pd
 
 rawdata = pd.read_csv('/Users/lucyliu/Desktop/smallData.csv')
@@ -44,7 +42,7 @@ In the `sorted` function, we used anonymous `lambda` function to select the vari
 
 `Pandas` is a standard package to do data wrangling. The `sort_values` method in pandas is efficient and easy to use.
 
-```Python
+```python
 from tabulate import tabulate
 
 sortedData = rawdata.sort_values(by=['temperature', 'date'], ascending = [False, True])

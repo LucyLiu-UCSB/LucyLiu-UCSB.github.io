@@ -20,7 +20,7 @@ The question considered here is a table of temperature per day. We are asked to 
 
 ## Python tuple
 
-```Python
+```python
 import pandas as pd
 
 rawdata = pd.read_csv('/Users/lucyliu/Desktop/smallData.csv')
@@ -42,7 +42,7 @@ In the `sorted` function, we used anonymous `lambda` function to select the vari
 
 `Pandas` is a standard package to do data wrangling. The `sort_values` method in pandas is efficient and easy to use.
 
-```Python
+```python
 from tabulate import tabulate
 
 sortedData = rawdata.sort_values(by=['temperature', 'date'], ascending = [False, True])
