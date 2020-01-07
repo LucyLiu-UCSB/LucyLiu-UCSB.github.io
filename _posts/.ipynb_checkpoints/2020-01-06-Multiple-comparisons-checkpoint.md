@@ -87,6 +87,16 @@ FDR adjusted p-values|0.1|0.55|0.7|0.77|0.82|0.85|0.87|0.89|0.9|0.91|
 
 The smallest p-value is not less than 0.05. So we fail to reject any null hypothesis.
 
+```python
+import matplotlib.pyplot as plt
+plt.style.use('seaborn-whitegrid')
+import numpy as np
+alpha = 0.05
+pvalues = [0.01, 0.11, 0.21, 0.31, 0.41, 0.51, 0.61, 0.71, 0.81, 0.91]
+threshold = np.arange(1, 11) * 0.05/len(pvalues)
+plt.plot(np.arange(1, 11), threshold)
+plt.scatter(np.arange(1, 11), pvalues, marker='.', color='r')
+```
 Geometrically, all the p-values are above the line \\(y = \frac{\alpha}{m}x\\). We fail to reject any null hypothesis.
 
 <img src="/assets/img/sample/fdr_plot.png" alt="fdr" width="300" class="center"/>
