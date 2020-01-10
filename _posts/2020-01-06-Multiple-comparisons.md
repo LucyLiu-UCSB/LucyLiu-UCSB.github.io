@@ -3,8 +3,6 @@ title: Multiple comparisons
 date: 2020-01-06 10：18
 categories: [Technical Tools, Statistics]
 tags: [Statistics]
-seo:
-  date_modified: 2020-01-06 18:03:55 -0800
 ---
 
 In statistics, multiple comparisons/multiple hypothesis testing occurs when one considers a set of statistical inference questions simultaneously. To control the chance of making mistakes when the null hypotheses are true, one needs to control the family-wise error rate (FWER) or false discovery rate (FDR).
@@ -101,7 +99,7 @@ plt.scatter(np.arange(1, 11), pvalues, marker='.', color='r')
 ```
 Geometrically, all the p-values are above the line \\(y = \frac{\alpha}{m}x\\). We fail to reject any null hypothesis.
 
-<img src="/assets/img/sample/fdr_plot.png" alt="fdr" width="300" class="center"/>
+<img src="/assets/img/sample/fdr_plot.png" alt="fdr" width="400" class="center"/>
 
 **3) Proof:**
 

@@ -4,7 +4,7 @@ date: 2019-12-05 16：12
 categories: [Technical Tools, SQL]
 tags: [SQL]
 seo:
-  date_modified: 2019-12-08 19:00:35 -0800
+  date_modified: 2019-12-17 16:08:25 -0800
 ---
 
 The second post of SQL includes median level applications. 
@@ -17,9 +17,10 @@ Aggregations/rankings on a subset of rows relative to the current row being tran
 function(...) OVER(
     PARTITION BY...
     ORDER BY...
-    ROWS BETWEEN ... AND ...
+    ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
 )
 ```
+The default range is  `BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW`.
 
 `Activity` table:
 

@@ -17,9 +17,10 @@ Aggregations/rankings on a subset of rows relative to the current row being tran
 function(...) OVER(
     PARTITION BY...
     ORDER BY...
-    ROWS BETWEEN ... AND ...
+    ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
 )
 ```
+The default range is  `BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW`.
 
 `Activity` table:
 

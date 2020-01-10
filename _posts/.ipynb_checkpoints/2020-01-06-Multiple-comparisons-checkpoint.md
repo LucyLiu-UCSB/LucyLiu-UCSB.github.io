@@ -99,7 +99,7 @@ plt.scatter(np.arange(1, 11), pvalues, marker='.', color='r')
 ```
 Geometrically, all the p-values are above the line \\(y = \frac{\alpha}{m}x\\). We fail to reject any null hypothesis.
 
-<img src="/assets/img/sample/fdr_plot.png" alt="fdr" width="300" class="center"/>
+<img src="/assets/img/sample/fdr_plot.png" alt="fdr" width="400" class="center"/>
 
 **3) Proof:**
 
