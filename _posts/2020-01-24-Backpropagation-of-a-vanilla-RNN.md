@@ -1,8 +1,10 @@
 ---
-title: Backpropagation of a vanilla RNN 
+title: Backpropagation of a vanilla RNN
 date: 2020-01-24 23:11
 categories: [Deep learning, Theoretical exploration]
 tags: [Deep learning]
+seo:
+  date_modified: 2020-01-25 22:05:10 -0800
 ---
 
 This post investigates how to code up a vanilla RNN. Most of the code and example are copied from Andrej Karpathy's blog:
