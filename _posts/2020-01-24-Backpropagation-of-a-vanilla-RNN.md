@@ -1,10 +1,8 @@
 ---
-title: Backpropagation of a vanilla RNN
+title: Backpropagation of a vanilla RNN 
 date: 2020-01-24 23:11
 categories: [Deep learning, Theoretical exploration]
 tags: [Deep learning]
-seo:
-  date_modified: 2020-01-25 22:00:52 -0800
 ---
 
 This post investigates how to code up a vanilla RNN. Most of the code and example are copied from Andrej Karpathy's blog:
@@ -214,4 +212,12 @@ rnn = vanillaRNN(n_x = vocab_size, n_h = 100, seq_length = 25, learning_rate = 1
 loss_list, sample_char = rnn.train(words, char_to_int, int_to_char, max_iter = 50000)
 ```
 
-    'kmmatody: nomels bake tho pav.\n.\n\nM:\nAtw: and I; thou onsel swere, lo! meroses ssseme noke shy ust but ker, woncter id imire ghy.\n\nWhat Thes hereth:\nIss:\nDrou wort, netesteme here to whont toy,\nAll My'
+    kmmatody: nomels bake tho pav.
+
+    M:
+    Atw: and I; thou onsel swere, lo! meroses ssseme noke shy ust but ker, woncter id imire ghy.
+
+    What Thes hereth:
+    Iss:
+    Drou wort, netesteme here to whont toy,
+    All My
