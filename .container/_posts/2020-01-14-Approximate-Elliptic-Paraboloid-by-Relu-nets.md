@@ -9,7 +9,7 @@ If we regard neural net models as nonparametric approximators of continuous func
 - in reference 1, it has been proved that a one hidden layer neural net with sigmoid activation function can approximate any continuous functions on a unit cube. And later, there are works showing this is also true for Relu activation. The conclusion here is a large flat net is safe to approximate any continuous function.
 - in reference 2, oppositely, it shows that with hidden layer widths at most \\(w\\), and arbitrary depth, Relu nets can approximate any countinous functions. If the net has input dimension \\(d_{input}\\) and output dimension \\(d_{out}\\), \\(w\\) should satisfy
 \\[d_{input}+1 \leq w \leq d_{input}+d_{out}.\\]
-In other words, it all hidden layer widths are bounded by \\(d_{input}\\), even in the infinite depth limit, Relu nets can only express a very limited class of functions.
+In other words, if all hidden layer widths are bounded by \\(d_{input}\\), even in the infinite depth limit, Relu nets can only express a very limited class of functions.
 
 In the following, we will see how Relu nets approximate a Elliptic Paraboloid function with different depth and width.
 
@@ -77,21 +77,21 @@ If we set the hidden layer has 20 units, since each Relu activation function fol
 <img src="/assets/img/sample/hidden1_w20_20200114.png" alt="fdr" width="600" align="center"/>
 ```python
 Model: "hidden1_width_20/40"
-__________________________________________________
-Layer (type)          Output Shape        Param # 
-==================================================
+______________________________________________________
+Layer (type)              Output Shape        Param # 
+======================================================
 dense_2_to_20/40 (Dense) (None, 20/40)          60/120   
-__________________________________________________
-re_lu (ReLU)       (None, 20/40)          0       
-__________________________________________________
-dropout (Dropout)  (None, 20/40)          0       
-__________________________________________________
-dense_20/40_to_1 (Dense) (None, 1)           21/41      
-==================================================
+______________________________________________________
+re_lu (ReLU)             (None, 20/40)          0       
+______________________________________________________
+dropout (Dropout)        (None, 20/40)          0       
+______________________________________________________
+dense_20/40_to_1 (Dense) (None, 1)              21/41      
+======================================================
 Total params: 81/161
 Trainable params: 81/161
 Non-trainable params: 0
-__________________________________________________
+______________________________________________________
 ```
 ## Model 3: 2 hidden layers with 10 units
 ```python
@@ -178,7 +178,6 @@ Total params: 41
 Trainable params: 31
 Non-trainable params: 10
 _________________________________________________________________
-
 ```
 
 If we only have 1 hidden layer with only 5 units, adding the batch normalization not only enables convergence faster but also results in an excellent fit. Also, the total number of trainable parameters is 31, which is the smallest among all the above models.
