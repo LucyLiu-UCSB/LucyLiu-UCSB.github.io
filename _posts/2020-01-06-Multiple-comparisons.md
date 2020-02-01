@@ -4,7 +4,7 @@ date: 2020-01-06 10:18
 categories: [Technical Tools, Statistics]
 tags: [Statistics]
 seo:
-  date_modified: 2020-01-09 20:17:49 -0800
+  date_modified: 2020-01-31 20:57:18 -0800
 ---
 
 In statistics, multiple comparisons/multiple hypothesis testing occurs when one considers a set of statistical inference questions simultaneously. To control the chance of making mistakes when the null hypotheses are true, one needs to control the family-wise error rate (FWER) or false discovery rate (FDR).

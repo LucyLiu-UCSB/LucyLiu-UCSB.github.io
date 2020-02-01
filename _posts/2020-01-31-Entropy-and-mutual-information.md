@@ -3,6 +3,8 @@ title: Entropy and mutual information
 date: 2020-01-31 15:58
 categories: [Technical Tools, Statistics]
 tags: [Statistics]
+seo:
+  date_modified: 2020-01-31 20:57:18 -0800
 ---
 
 In statistical community, one of the primary estimation methods is maximum log-likelihood estimation (MLE). However, in machine learning/engineering, log-likelihood function has been renamed as cross entropy. This post is a summary of the chapter 2 in [Elements of Information Theory](https://ebookcentral.proquest.com/lib/ucsb-ebooks/detail.action?docID=266952#goto_toc).
