@@ -1,8 +1,10 @@
 ---
-title: Backpropagation of a vanilla RNN 
+title: Backpropagation of a vanilla RNN
 date: 2020-01-24 23:11
 categories: [Deep learning, Theoretical exploration]
 tags: [Deep learning]
+seo:
+  date_modified: 2020-01-25 22:05:10 -0800
 ---
 
 This post investigates how to code up a vanilla RNN. Most of the code and example are copied from Andrej Karpathy's blog:
@@ -136,7 +138,15 @@ Now, it remains to compute
 Andrej Karpathy provides a small [Shakespeare data set](https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt). We set `n_h = 100` and `seq_length = 25` in the vanilla RNN. After 50000 iterations, the loss function can not furthur decrease.
 <img src="/assets/img/sample/loss_20200124.png" alt="fdr" width="400" class="center"/>
 ```python
-   def train(self, inputs, char_to_int, int_to_char, max_iter = 1e4):
+    def update_para(self, dWxh, dWhh, dWhy, dbh, dby):
+        for para, dpara, mem in zip(['Wxh', 'Whh', 'Why', 'bh', 'by'], 
+                                    [dWxh, dWhh, dWhy, dbh, dby], 
+                                    ['mWxh', 'mWhh', 'mWhy', 'mbh', 'mby']):
+            
+            setattr(self, mem, getattr(self, mem) + dpara * dpara)
+            setattr(self, para, getattr(self, para) - self.learning_rate * dpara/np.sqrt(getattr(self, mem) + 1e-8))
+
+    def train(self, inputs, char_to_int, int_to_char, max_iter = 1e4):
         
         iter_num, position = 0, 0
         loss_list = []
@@ -204,4 +214,12 @@ rnn = vanillaRNN(n_x = vocab_size, n_h = 100, seq_length = 25, learning_rate = 1
 loss_list, sample_char = rnn.train(words, char_to_int, int_to_char, max_iter = 50000)
 ```
 
-    'kmmatody: nomels bake tho pav.\n.\n\nM:\nAtw: and I; thou onsel swere, lo! meroses ssseme noke shy ust but ker, woncter id imire ghy.\n\nWhat Thes hereth:\nIss:\nDrou wort, netesteme here to whont toy,\nAll My'
+    kmmatody: nomels bake tho pav.
+
+    M:
+    Atw: and I; thou onsel swere, lo! meroses ssseme noke shy ust but ker, woncter id imire ghy.
+
+    What Thes hereth:
+    Iss:
+    Drou wort, netesteme here to whont toy,
+    All My

@@ -1,6 +1,6 @@
 ---
 title: Multiple comparisons
-date: 2020-01-06 10：18
+date: 2020-01-06 10:18
 categories: [Technical Tools, Statistics]
 tags: [Statistics]
 seo:

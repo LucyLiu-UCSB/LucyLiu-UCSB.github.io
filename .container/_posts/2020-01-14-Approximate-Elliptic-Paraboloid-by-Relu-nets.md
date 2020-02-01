@@ -3,6 +3,8 @@ title: Approximating Elliptic Paraboloid by Relu nets
 date: 2020-01-14 23:34
 categories: [Deep learning, Theoretical exploration]
 tags: [Deep learning]
+seo:
+  date_modified: 2020-01-25 22:00:52 -0800
 ---
 
 If we regard neural net models as nonparametric approximators of continuous functions, several works are supporting the validity of this method. In particular, 
