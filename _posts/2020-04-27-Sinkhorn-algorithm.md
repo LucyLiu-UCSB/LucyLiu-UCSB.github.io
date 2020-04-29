@@ -3,6 +3,8 @@ title: Sinkhorn Algorithm
 date: 2020-04-27 12:51
 categories: [Technical Tools, Statistics]
 tags: [Optimal Transport]
+seo:
+  date_modified: 2020-04-29 10:19:34 -0700
 ---
 
 ## The Wasserstein distance
