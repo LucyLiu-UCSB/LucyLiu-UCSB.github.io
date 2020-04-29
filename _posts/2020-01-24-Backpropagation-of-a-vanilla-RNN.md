@@ -82,7 +82,7 @@ L & = \sum_{t = 1}^{n_{seq}}l_t
         return loss, x, h, p
 ```
 
-## backpropagation
+## Backpropagation
 
 Backpropagation in the neural network is an application of chain rule in calculus. I write down the detailed derivation of the partial derivatives of the parameters.
 
