@@ -3,6 +3,8 @@ title: Wasserstein Barycenter
 date: 2020-04-30 11:00
 categories: [Technical Tools, Statistics]
 tags: [Optimal Transport, Computer Vision]
+seo:
+  date_modified: 2020-06-14 17:16:29 -0700
 ---
 
 ## Wasserstein Barycenter problem

@@ -3,6 +3,8 @@ title: UFC fight predictor 1-- scraping and exploratory analysis
 date: 2020-06-14 15:00
 categories: [Deep learning, Real data analysis]
 tags: [Deep learning, Python]
+seo:
+  date_modified: 2020-06-14 17:16:29 -0700
 ---
 
 Recently, I become a fan of [Weili Zhang](https://en.wikipedia.org/wiki/Zhang_Weili), the new UFC Women's Strawweight Champion. She is a truly dedicated, confident and humble Chinese mixed martial artist. While looking into MMA, I am well aware of "MMA math does not work." That is if A beats B and B beats C, we can not conclude chances are that A will beat C. Then the question is how to predict the result of a coming MMA fight. 
