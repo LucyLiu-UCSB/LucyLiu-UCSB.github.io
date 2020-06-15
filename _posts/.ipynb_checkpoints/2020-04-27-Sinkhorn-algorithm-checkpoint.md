@@ -35,13 +35,13 @@ def mixedGaussian(mu1, mu2, sigma1, sigma2, n):
     return (gaussian1**bernoulli)*(gaussian2**(1-bernoulli))
 dist_a = mixedGaussian(mu1 = 1, mu2 = 10, sigma1 = 2, sigma2 = 1.5, n = 100000)
 p_a, edges_a = np.histogram(dist_a, bins=n_bins)
-pa = figure(title='dist_a: mixed gaussian distribution, 0.5*N(0, 2) + 0.5*N(10, 1)', background_fill_color="#fafafa", tools = "save", plot_height=300)
+pa = figure(title='dist_a: mixed gaussian distribution, 0.5*N(1, 2) + 0.5*N(10, 1.5)', background_fill_color="#fafafa", tools = "save", plot_height=300)
 p_a = p_a/100000
 pa.quad(top=p_a, bottom=0, left=edges_a[:-1], right=edges_a[1:], fill_color="navy", line_color="white", alpha=0.5)
 dist_b = np.random.gamma(7, scale = 1, size = 100000)
 p_b, edges_b = np.histogram(dist_b, bins=n_bins)
 p_b = p_b/100000
-pb = figure(title='dist_b: gamma distribution, Gamma(3, 3)', background_fill_color="#fafafa", y_range = pa.y_range, plot_height=300)
+pb = figure(title='dist_b: gamma distribution, Gamma(7, 1)', background_fill_color="#fafafa", y_range = pa.y_range, plot_height=300)
 pb.quad(top=p_b, bottom=0, left=edges_b[:-1], right=edges_b[1:], fill_color="navy", line_color="white", alpha=0.5)
 show(row(pa, pb)) #export_png(row(pa, pb), filename="sinkhorn428_p1.png")
 ```
@@ -101,17 +101,19 @@ In the following, we list some properties of entropic penalized Wasserstein dist
 3. When \\(\varepsilon\rightarrow\infty\\), the solution \\(\mathbf{P}\rightarrow \mathbf{a}\otimes\mathbf{b}\\); when \\(\varepsilon\rightarrow 0\\), the solution \\(\mathbf{P}\rightarrow \mathbf{P}^{OT}\\). 
 
 ## Sinkhorn algorithm
+
+In the following, we consider Wasserstein-2 distance, namely \\(p = 2\\). Then we relabel \\(\mathbf{C}^{.2}\\) as  \\(\mathbf{C}\\).
 The Sinkhorn algorithm utilizes the dual formulation of the constrained convex optimization, which turns the unknown from \\(  \mathbf{P}\\) (\\(n^2\\) unknowns) into the dual variables \\(\mathbf{f}, \mathbf{g}\\) (\\(2n\\) unknowns) of the linear constrants. Define the Lagrange function as
 \\[
 L(\mathbf{P}, \mathbf{f}, \mathbf{g}) = \langle \mathbf{C}, \mathbf{P} \rangle -\varepsilon H(\mathbf{P}) -\langle \mathbf{f}, \mathbf{P}\mathbb{1} - \mathbf{a}\rangle - \langle \mathbf{g}, \mathbf{P}^T\mathbb{1} - \mathbf{b}\rangle.
 \\]
 The first order condition is 
 \\[
-\frac{\partial L(\mathbf{P}, \mathbf{f}, \mathbf{g})}{\partial \mathbf{P}\_{i,j}} = \mathbf{C}\_{i,j}+\varepsilon \mathbf{P}\_{i,j}-\mathbf{f}_i - \mathbf{g}_j = 0,
+\frac{\partial L(\mathbf{P}, \mathbf{f}, \mathbf{g})}{\partial \mathbf{P}\_{i,j}} = \mathbf{C}\_{i,j}+\varepsilon \log \mathbf{P}\_{i,j}-\mathbf{f}_i - \mathbf{g}_j = 0,
 \\]
 which leads to the solution
 \\[
-\mathbf{P} = \text{diag}(e^{\mathbf{f}}) * e^{\frac{-\mathbf{C}}{\varepsilon}} * \text{diag}(e^{\mathbf{g}}).
+\mathbf{P} = \text{diag}(e^{\mathbf{f}/\varepsilon}) * e^{\frac{-\mathbf{C}}{\varepsilon}} * \text{diag}(e^{\mathbf{g}/\varepsilon}).
 \\]
 Therefore, the solution must be in the form of
 \\[\text{diag}(\mathbf{u})* \mathbf{K}* \text{diag} (\mathbf{v}), \mathbf{K} = e^{\frac{-\mathbf{C}}{\varepsilon}}.\\]
