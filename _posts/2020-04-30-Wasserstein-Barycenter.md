@@ -29,7 +29,7 @@ One can generalize the sinkhorn algorithm to the barycenter problem. We derive t
 
 Define the Language function as
 \\[
-\Lambda(\mathbf{P}, \mathbf{a}, \mathbf{f}, \mathbf{g}) = \sum_s \lambda_s \left(\langle \mathbf{C}_s, \mathbf{P}_s \rangle + \varepsilon \sum\_{i, j} \mathbf{P}^s\_{i, j} (\log \mathbf{P}\_{i,j} - 1) + \langle\mathbf{f}, \mathbf{a} - \mathbf{P}_s \mathbb{1}\rangle + \langle \mathbf{g}, \mathbf{b}_s - \mathbf{P}^T_s\mathbf{1}\rangle\right)
+\Lambda(\mathbf{P}, \mathbf{a}, \mathbf{f}, \mathbf{g}) = \sum_s \lambda_s \left(\langle \mathbf{C}_s, \mathbf{P}_s \rangle + \varepsilon \sum\_{i, j} \mathbf{P}^s\_{i, j} (\log \mathbf{P}\_{i,j} - 1) + \langle\mathbf{f}_s, \mathbf{a} - \mathbf{P}_s \mathbb{1}\rangle + \langle \mathbf{g}_s, \mathbf{b}_s - \mathbf{P}^T_s\mathbf{1}\rangle\right)
 \\]
 
 Since strong duality holds, we have
@@ -39,18 +39,18 @@ d* &= \max\_{\mathbf{f},\mathbf{g}} g(\mathbf{f}, \mathbf{g}) = p*.
 \end{align}
 \\]
 The $$\max\min$$ question is 
-\\[  \max\_{\mathbf{f},\mathbf{g}}\sum_s \lambda_s \left(\langle \mathbf{g}, \mathbf{b}\_s \rangle +\min\_{\mathbf{P}\_s} \langle \mathbf{C}\_s, \mathbf{P}\_s \rangle + \varepsilon \sum\_{i, j} \mathbf{P}^s\_{i, j} (\log \mathbf{P}^s\_{i,j} - 1) - \langle\mathbf{f}\_s,  \mathbf{P}\_s \mathbb{1}\rangle - \langle \mathbf{g},  \mathbf{P}^T_s\mathbb{1}\rangle\right) +\min_{\mathbf{a}}\langle \sum_s \lambda_s\mathbf{f}_s, \mathbf{a} \rangle.
+\\[  \max\_{\mathbf{f},\mathbf{g}}\sum_s \lambda_s \left(\langle \mathbf{g}\_s, \mathbf{b}\_s \rangle +\min\_{\mathbf{P}\_s} \langle \mathbf{C}\_s, \mathbf{P}\_s \rangle + \varepsilon \sum\_{i, j} \mathbf{P}^s\_{i, j} (\log \mathbf{P}^s\_{i,j} - 1) - \langle\mathbf{f}\_s,  \mathbf{P}\_s \mathbb{1}\rangle - \langle \mathbf{g}\_s,  \mathbf{P}^T_s\mathbb{1}\rangle\right) +\min_{\mathbf{a}}\langle \sum_s \lambda_s\mathbf{f}\_s, \mathbf{a} \rangle.
 \\]
 
 First, the explicit minimization on \\(\mathbf{a}\\) gives the constraint \\(\sum_s\lambda_s\mathbf{f}_s = 0\\), otherwise, the function has maximum \\(-\infty\\) and thus \\(\mathbf{f}\\) is not the maximizer.
 
 Define
 \\[
-\Lambda_s (\mathbf{P}\_s) = \langle \mathbf{C}\_s, \mathbf{P}\_s \rangle + \varepsilon \sum\_{i, j} \mathbf{P}^s\_{i, j} (\log \mathbf{P}^s\_{i,j} - 1) - \langle\mathbf{f}\_s,  \mathbf{P}\_s \mathbb{1}\rangle - \langle \mathbf{g},  \mathbf{P}^T_s\mathbb{1}\rangle.
+\Lambda_s (\mathbf{P}\_s) = \langle \mathbf{C}\_s, \mathbf{P}\_s \rangle + \varepsilon \sum\_{i, j} \mathbf{P}^s\_{i, j} (\log \mathbf{P}^s\_{i,j} - 1) - \langle\mathbf{f}\_s,  \mathbf{P}\_s \mathbb{1}\rangle - \langle \mathbf{g}_s,  \mathbf{P}^T_s\mathbb{1}\rangle.
 \\]
 The first order condition
 \\[
-\frac{\partial \Lambda_s (\mathbf{P}_s)}{\partial \mathbf{P}^s\_{i, j} } = \mathbf{C}^s\_{i, j} + \varepsilon \log\mathbf{P}^s\_{i,j} -\mathbf{f}_i - \mathbf{g}_j = 0
+\frac{\partial \Lambda_s (\mathbf{P}_s)}{\partial \mathbf{P}^s\_{i, j} } = \mathbf{C}^s\_{i, j} + \varepsilon \log\mathbf{P}^s\_{i,j} -\mathbf{f}^s\_i - \mathbf{g}^s\_j = 0
 \\]
 gives us 
 \\[
